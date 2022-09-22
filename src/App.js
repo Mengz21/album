@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Note from "./components/Note";
+import notes from "./notes";
 
-function App() {
+export default function App() {
   return (
+   
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {notes.map(noteItem => (
+        <Note
+        
+          key={noteItem.key}
+          imgsrc={noteItem.imgsrc}
+          title={noteItem.title}
+          content={noteItem.content}
+        />
+      ))}
+      <Footer />
+      
     </div>
   );
 }
-
-export default App;
